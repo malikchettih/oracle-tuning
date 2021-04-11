@@ -61,7 +61,7 @@ PL/SQL compilation elapsed time                      154,742        1,2
 
 ### Display the time model statistics in a hierarchy structure
 
-```
+```SQL
 
 SQL> col STAT_NAME format a60
 SQL> SELECT LPAD(' ', 2*level-1)||STAT_NAME STAT_NAME, 
