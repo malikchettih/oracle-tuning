@@ -5,11 +5,15 @@
 ```SQL
 
 SQL> COL STAT_NAME FORMAT A43
-SQL> SELECT STAT_NAME, TO_CHAR(VALUE,'999,999,999,999') TIME_MICRO_S
-  FROM V$SYS_TIME_MODEL
-  WHERE VALUE <>0 AND STAT_NAME NOT IN ('background elapsed time', 'background cpu time') 
-  ORDER BY VALUE DESC
-  FETCH FIRST 7 ROWS ONLY;
+SQL> SELECT 
+       STAT_NAME, 
+       TO_CHAR(VALUE,'999,999,999,999') TIME_MICRO_S
+     FROM V$SYS_TIME_MODEL
+     WHERE 
+       VALUE <>0 
+       AND STAT_NAME NOT IN ('background elapsed time', 'background cpu time') 
+     ORDER BY VALUE DESC
+     FETCH FIRST 7 ROWS ONLY;
  
 STAT_NAME                                   TIME_MICRO_S
 ------------------------------------------- ----------------
@@ -29,12 +33,16 @@ PL/SQL compilation elapsed time                      142,613
  ```
  
 SQL> COL STAT_NAME FORMAT A43
-SQL> SELECT STAT_NAME, TO_CHAR(VALUE,'999,999,999,999') TIME_MICRO_S
-  , ROUND(VALUE/(SELECT VALUE FROM V$SYS_TIME_MODEL WHERE STAT_NAME='DB time')*100,2) PCT
-  FROM V$SYS_TIME_MODEL
-  WHERE VALUE <>0 AND STAT_NAME NOT IN ('background elapsed time', 'background cpu time')
-  ORDER BY VALUE DESC
-  FETCH FIRST 7 ROWS ONLY;
+SQL> SELECT 
+       STAT_NAME, 
+       TO_CHAR(VALUE,'999,999,999,999') TIME_MICRO_S, 
+       ROUND(VALUE/(SELECT VALUE FROM V$SYS_TIME_MODEL WHERE STAT_NAME='DB time')*100,2) PCT
+     FROM V$SYS_TIME_MODEL
+     WHERE 
+       VALUE <>0 AND 
+       STAT_NAME NOT IN ('background elapsed time', 'background cpu time')
+     ORDER BY VALUE DESC
+     FETCH FIRST 7 ROWS ONLY;
  
 STAT_NAME                                   TIME_MICRO_S            PCT
 ------------------------------------------- ---------------- ----------
