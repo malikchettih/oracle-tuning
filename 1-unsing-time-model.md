@@ -1,5 +1,7 @@
 # Using Time Model
 
+### Top 7 “time model statistics” operations at the system level
+
 ```SQL
 
 SQL> COL STAT_NAME FORMAT A43
