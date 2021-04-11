@@ -30,7 +30,8 @@ PL/SQL compilation elapsed time                      142,613
 ```
 
 ### Display the percentage of each operation type from the total DB time
- ```
+
+```SQL
  
 SQL> COL STAT_NAME FORMAT A43
 SQL> SELECT 
